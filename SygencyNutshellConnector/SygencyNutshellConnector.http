@@ -1,0 +1,6 @@
+@SygencyNutshellConnector_HostAddress = http://localhost:5063
+
+GET {{SygencyNutshellConnector_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
