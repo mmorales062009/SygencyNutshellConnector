@@ -1,4 +1,6 @@
 
+using System.Net;
+
 namespace SygencyNutshellConnector
 {
     public class Program
@@ -16,8 +18,14 @@ namespace SygencyNutshellConnector
 
             var app = builder.Build();
 
-
-                app.UseSwagger();
+            builder.WebHost.ConfigureKestrel(opts =>
+            {
+                opts.Listen(IPAddress.Loopback, port: 80); // listen on http://localhost:5002
+                opts.ListenAnyIP(80); // listen on http://*:5003
+                opts.ListenLocalhost(80, listenOptions => listenOptions.UseHttps());  // listen on https://localhost:5004
+      
+            });
+            app.UseSwagger();
                 app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
