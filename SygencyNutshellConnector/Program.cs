@@ -18,7 +18,6 @@ namespace SygencyNutshellConnector
 
             builder.WebHost.ConfigureKestrel(opts =>
             {
-                opts.Listen(IPAddress.Any, port: 80); // listen on http://localhost:5002
                 opts.ListenAnyIP(80); // listen on http://*:5003
             });
 
