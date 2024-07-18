@@ -20,8 +20,6 @@ namespace SygencyNutshellConnector
             {
                 opts.Listen(IPAddress.Loopback, port: 80); // listen on http://localhost:5002
                 opts.ListenAnyIP(80); // listen on http://*:5003
-                opts.ListenLocalhost(80, listenOptions => listenOptions.UseHttps());  // listen on https://localhost:5004
-
             });
 
             var app = builder.Build();
